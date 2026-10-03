@@ -115,10 +115,11 @@
   justify-content: center;
 
   gap: var(--space-md);
+  flex-wrap: wrap;
 
  }
 
- nav a {
+ nav a:active {
 
   text-decoration: none;
 
