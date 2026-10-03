@@ -1,0 +1,518 @@
+/* ==========================================================================
+
+   COMMIT 1: Design Tokens & Base Setup
+
+   ========================================================================== */
+
+ :root {
+
+  /* --- Colour Roles --- */
+
+  --color-primary: #1e3a8a;          /* Deep navy blue */
+
+  --color-primary-hover: #1d4ed8;    /* Vibrant blue */
+
+  --color-secondary: #0d9488;        /* Teal accent */
+
+  --color-bg-main: #f8fafc;          /* Light slate page background */
+
+  --color-bg-card: #ffffff;          /* White card background */
+
+  --color-text-main: #0f172a;        /* Dark slate text */
+
+  --color-text-muted: #475569;       /* Muted gray text */
+
+  --color-border: #e2e8f0;           /* Soft border gray */
+
+  --color-focus: #2563eb;            /* High-contrast focus outline */
+
+  /* --- Spacing Scale --- */
+
+  --space-xs: 0.25rem;   /* 4px */
+
+  --space-sm: 0.5rem;    /* 8px */
+
+  --space-md: 1rem;      /* 16px */
+
+  --space-lg: 1.5rem;    /* 24px */
+
+  --space-xl: 2.5rem;    /* 40px */
+
+  --space-2xl: 4rem;     /* 64px */
+
+  /* --- Typography Scale --- */
+
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --font-size-sm: 0.875rem;   /* 14px */
+
+  --font-size-base: 1rem;     /* 16px */
+
+  --font-size-lg: 1.25rem;    /* 20px */
+
+  --font-size-xl: 1.75rem;    /* 28px */
+
+  --font-size-2xl: 2.25rem;   /* 36px */
+
+  --line-height-tight: 1.2;
+
+  --line-height-base: 1.6;
+
+  /* --- Layout & Utility --- */
+
+  --border-radius: 8px;
+
+  --transition-fast: 0.2s ease;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+ }
+
+ /* Global Reset & Base Styles */
+
+ *, *::before, *::after {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+ }
+
+ body {
+
+  font-family: var(--font-family-base);
+
+  font-size: var(--font-size-base);
+
+  line-height: var(--line-height-base);
+
+  color: var(--color-text-main);
+
+  background-color: var(--color-bg-main);
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 100vh;
+
+ }
+
+ main {
+
+  flex: 1;
+
+  width: 100%;
+
+  max-width: 960px;
+
+  margin: 0 auto;
+
+  padding: var(--space-xl) var(--space-md);
+
+ }
+
+ h1, h2, h3 {
+
+  line-height: var(--line-height-tight);
+
+  color: var(--color-primary);
+
+  margin-bottom: var(--space-md);
+
+ }
+
+ h1 { font-size: var(--font-size-2xl); }
+
+ h2 { font-size: var(--font-size-xl); }
+
+ p {
+
+  color: var(--color-text-muted);
+
+  margin-bottom: var(--space-md);
+
+ }
+
+ /* Base Accessibility Focus Indicator */
+
+ a:focus-visible,
+
+ button:focus-visible,
+
+ input:focus-visible,
+
+ textarea:focus-visible {
+
+  outline: 3px solid var(--color-focus);
+
+  outline-offset: 2px;
+
+ }
+
+
+ /* ==========================================================================
+
+   COMMIT 2: Layout & Navigation Styling
+
+   ========================================================================== */
+
+ header {
+
+  background-color: var(--color-bg-card);
+
+  border-bottom: 1px solid var(--color-border);
+
+  padding: var(--space-lg) var(--space-md);
+
+  box-shadow: var(--shadow-sm);
+
+  text-align: center;
+
+ }
+
+ header h1 {
+
+  margin-bottom: var(--space-md);
+
+ }
+
+ nav ul {
+
+  list-style: none;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: var(--space-md);
+
+  flex-wrap: wrap;
+
+ }
+
+ nav a {
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  color: var(--color-text-main);
+
+  padding: var(--space-sm) var(--space-md);
+
+  border-radius: var(--border-radius);
+
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+
+ }
+
+ /* Navigation Hover & Focus States */
+
+ nav a:hover {
+
+  background-color: var(--color-primary);
+
+  color: #ffffff;
+
+ }
+
+ nav a:focus-visible {
+
+  background-color: var(--color-primary);
+
+  color: #ffffff;
+
+  outline: 3px solid var(--color-focus);
+
+  outline-offset: 2px;
+
+ }
+
+ footer {
+
+  background-color: var(--color-bg-card);
+
+  border-top: 1px solid var(--color-border);
+
+  text-align: center;
+
+  padding: var(--space-lg) var(--space-md);
+
+  margin-top: auto;
+
+ }
+
+ footer p {
+
+  margin: 0;
+
+  font-size: var(--font-size-sm);
+
+ }
+
+
+ /* ==========================================================================
+
+   COMMIT 3: Reusable UI Components (Cards & Buttons)
+
+   ========================================================================== */
+
+ /* Component 1: Card Component (<article> or container wrappers) */
+
+ article,
+
+ .card {
+
+  background-color: var(--color-bg-card);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--border-radius);
+
+  padding: var(--space-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+
+ }
+
+ article:hover,
+
+ .card:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-md);
+
+ }
+
+ article img {
+
+  width: 100%;
+
+  max-width: 400px;
+
+  height: auto;
+
+  border-radius: calc(var(--border-radius) - 2px);
+
+  display: block;
+
+  margin-top: var(--space-md);
+
+ }
+
+ /* Component 2: Button Component */
+
+ button,
+
+ .btn {
+
+  display: inline-block;
+
+  background-color: var(--color-primary);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: var(--font-size-base);
+
+  font-weight: 600;
+
+  padding: var(--space-sm) var(--space-lg);
+
+  border: none;
+
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+
+  text-decoration: none;
+
+  text-align: center;
+
+ }
+
+ button:hover,
+
+ .btn:hover {
+
+  background-color: var(--color-primary-hover);
+
+ }
+
+ button:active,
+
+ .btn:active {
+
+  transform: scale(0.98);
+
+ }
+
+
+ /* ==========================================================================
+
+   COMMIT 4: Specific Page Styles (Forms & Tables)
+
+   ========================================================================== */
+
+ /* Contact Page Form Styling */
+
+ form {
+
+  background-color: var(--color-bg-card);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--border-radius);
+
+  padding: var(--space-xl);
+
+  box-shadow: var(--shadow-sm);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--space-lg);
+
+  max-width: 600px;
+
+ }
+
+ form > div {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--space-xs);
+
+ }
+
+ label {
+
+  font-weight: 600;
+
+  font-size: var(--font-size-sm);
+
+  color: var(--color-text-main);
+
+ }
+
+ input[type="text"],
+
+ input[type="email"],
+
+ textarea {
+
+  width: 100%;
+
+  font-family: inherit;
+
+  font-size: var(--font-size-base);
+
+  padding: var(--space-sm) var(--space-md);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: calc(var(--border-radius) - 2px);
+
+  background-color: var(--color-bg-main);
+
+  transition: border-color var(--transition-fast);
+
+ }
+
+ input[type="text"]:focus,
+
+ input[type="email"]:focus,
+
+ textarea:focus {
+
+  border-color: var(--color-primary);
+
+ }
+
+ textarea {
+
+  resize: vertical;
+
+  min-height: 120px;
+
+ }
+
+ /* Skills Page Table Styling */
+
+ table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background-color: var(--color-bg-card);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--border-radius);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+
+ }
+
+ caption {
+
+  font-size: var(--font-size-sm);
+
+  color: var(--color-text-muted);
+
+  margin-bottom: var(--space-sm);
+
+  text-align: left;
+
+  font-style: italic;
+
+ }
+
+ th, td {
+
+  padding: var(--space-md);
+
+  text-align: left;
+
+  border-bottom: 1px solid var(--color-border);
+
+ }
+
+ thead th {
+
+  background-color: var(--color-primary);
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+ }
+
+ tbody tr:nth-child(even) {
+
+  background-color: var(--color-bg-main);
+
+ }
+
+ tbody tr:hover {
+
+  background-color: #f1f5f9;
+
+ }

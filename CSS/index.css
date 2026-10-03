@@ -1,0 +1,195 @@
+/* 1. DESIGN TOKENS (Variables for color, spacing, fonts) */
+
+ :root {
+
+  --color-primary: #1e3a8a;
+
+  --color-primary-hover: #1d4ed8;
+
+  --color-bg-main: #f8fafc;
+
+  --color-bg-card: #ffffff;
+
+  --color-text-main: #0f172a;
+
+  --color-text-muted: #475569;
+
+  --color-border: #e2e8f0;
+
+  --color-focus: #2563eb;
+
+  --space-sm: 0.5rem;
+
+  --space-md: 1rem;
+
+  --space-lg: 1.5rem;
+
+  --space-xl: 2.5rem;
+
+  --font-family-base: system-ui, -apple-system, sans-serif;
+
+  --border-radius: 12px;
+
+ }
+
+ /* 2. BASE RESET & TYPOGRAPHY */
+
+ *, *::before, *::after {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+ }
+
+ body {
+
+  font-family: var(--font-family-base);
+
+  background-color: var(--color-bg-main);
+
+  color: var(--color-text-main);
+
+  line-height: 1.6;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 100vh;
+
+ }
+
+ main {
+
+  flex: 1;
+
+  max-width: 800px;
+
+  width: 100%;
+
+  margin: 0 auto;
+
+  padding: var(--space-xl) var(--space-md);
+
+ }
+
+ h1, h2 {
+
+  color: var(--color-primary);
+
+  margin-bottom: var(--space-md);
+
+ }
+
+ p {
+
+  color: var(--color-text-muted);
+
+  margin-bottom: var(--space-md);
+
+ }
+
+ /* 3. HEADER & NAVIGATION */
+
+ header {
+
+  background-color: var(--color-bg-card);
+
+  border-bottom: 1px solid var(--color-border);
+
+  padding: var(--space-lg) var(--space-md);
+
+  text-align: center;
+
+ }
+
+ nav ul {
+
+  list-style: none;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: var(--space-md);
+
+ }
+
+ nav a {
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  color: var(--color-text-main);
+
+  padding: var(--space-sm) var(--space-md);
+
+  border-radius: 6px;
+
+  transition: all 0.2s ease;
+
+ }
+
+ /* Hover and Focus Accessibility States */
+
+ nav a:hover,
+
+ nav a:focus-visible {
+
+  background-color: var(--color-primary);
+
+  color: #ffffff;
+
+  outline: 3px solid var(--color-focus);
+
+ }
+
+ /* 4. REUSABLE COMPONENTS (Card & Image) */
+
+ article {
+
+  background-color: var(--color-bg-card);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--border-radius);
+
+  padding: var(--space-xl);
+
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  text-align: center;
+
+ }
+
+ article img {
+
+  width: 100%;
+
+  max-width: 450px;
+
+  height: auto;
+
+  border-radius: 8px;
+
+  margin-top: var(--space-md);
+
+ }
+
+ footer {
+
+  background-color: var(--color-bg-card);
+
+  border-top: 1px solid var(--color-border);
+
+  text-align: center;
+
+  padding: var(--space-lg);
+
+  margin-top: auto;
+
+ }
