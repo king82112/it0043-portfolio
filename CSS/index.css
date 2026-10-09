@@ -194,3 +194,39 @@
   margin-top: auto;
 
  }
+ /* 5. RESPONSIVE MEDIA QUERIES */
+
+/* Tablet / Medium screen layout */
+@media (min-width: 650px) {
+  main {
+    padding: var(--space-xl) var(--space-lg);
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 950px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-xl);
+  }
+  nav ul {
+    gap: var(--space-lg);
+  }
+}
+
+/* Large widescreen layout */
+@media (min-width: 1200px) {
+  main {
+    max-width: 1000px;
+  }
+}
+
+/* 6. MOTION ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
