@@ -1,3 +1,4 @@
+// Handles mobile navigation responsiveness for small screens
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 if (navToggle && navMenu) {
@@ -6,6 +7,7 @@ if (navToggle && navMenu) {
     });
 }
 
+// Persists user theme preference using body class toggling
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
@@ -13,6 +15,7 @@ if (themeToggle) {
     });
 }
 
+// Dynamically populates portfolio content to maintain a scalable data structure
 const projects = [
     { title: "Project One", desc: "A simple HTML and CSS layout project." },
     { title: "Project Two", desc: "An interactive JavaScript application." }
@@ -27,6 +30,7 @@ if (container) {
     `).join('');
 }
 
+// Validates user input client-side to prevent blank submissions and bad email formats
 const form = document.getElementById('contact-form');
 if (form) {
     form.addEventListener('submit', (e) => {
